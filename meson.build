@@ -32,6 +32,7 @@ conecto_deps = [
   dependency('libnotify'),
   dependency('unity', version: '>=4.0.0'),
   dependency('sqlite3'),
+  dependency('x11'),
   meson.get_compiler('vala').find_library('posix'),
 ]
 

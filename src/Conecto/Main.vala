@@ -16,11 +16,15 @@
  * Hannes Schulze <haschu0103 (at) gmail.com>
  */
 
+using X;
+
 namespace Conecto {
 
     public class Main {
 
         public static int main (string [] args) {
+            X.init_threads ();
+
             // Needed for mousepad protocol handler.
             Gdk.init (ref args);
 
@@ -38,3 +42,4 @@ namespace Conecto {
         }
     }
 }
+
