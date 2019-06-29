@@ -51,6 +51,7 @@ namespace Conecto {
 
         public override void activate ()
         {
+            Contractor.create_if_not_exists_contract_dir ();
             Contractor.clean_contractor_directory.begin ();
             MConnectThread mconnect_thread = new MConnectThread (this, devices_map, main_settings);
 
