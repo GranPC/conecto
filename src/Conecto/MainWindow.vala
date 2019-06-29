@@ -49,6 +49,14 @@ namespace Conecto {
         }
         construct {
 
+            var provider = new Gtk.CssProvider ();
+            try {
+                provider.load_from_resource ("com/github/hannesschulze/conecto/Application.css");
+                Gtk.StyleContext.add_provider_for_screen (Gdk.Screen.get_default (), provider, Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION);
+            } catch (Error e) {
+                critical (e.message);
+            }
+
             var theme_button = new Gtk.Button.from_icon_name ("object-inverse");
             theme_button.tooltip_text = _("Use dark style");
             theme_button.valign = Gtk.Align.CENTER;

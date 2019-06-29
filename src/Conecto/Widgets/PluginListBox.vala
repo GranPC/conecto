@@ -41,6 +41,7 @@ namespace Conecto.Widgets {
             plugins_label.get_style_context ().add_class (Granite.STYLE_CLASS_H4_LABEL);
             plugins_label.halign = Gtk.Align.START;
             show_all ();
+            get_style_context ().add_class ("plugin-box");
         }
 
         public void update_ui (Gee.HashMap<string, PluginInterface> plugins_map) {

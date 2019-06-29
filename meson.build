@@ -45,9 +45,17 @@ subdir('src')
 subdir('po')
 subdir('data')
 
+gnome = import('gnome')
+
+asresources = gnome.compile_resources(
+    'as-resources', 'data/css.gresource.xml',
+    source_dir : 'data',
+    c_name : 'as'
+)
 
 executable('com.github.hannesschulze.conecto',
   conecto_sources,
+  asresources,
   vala_args: '--target-glib=2.50',
   dependencies: conecto_deps,
   install: true,
