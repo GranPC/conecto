@@ -32,7 +32,7 @@ namespace Conecto {
         private SMSHistory sms_history_view;
         private MainWindow main_window;
 
-        public Application () {
+        construct {
             application_id = Constants.ID;
             flags = ApplicationFlags.FLAGS_NONE;
             program_name = Constants.PROGRAM_NAME;

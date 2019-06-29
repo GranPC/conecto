@@ -31,7 +31,7 @@ namespace Conecto.Plugin {
             name  = _("Share");
             icon_name = "emblem-shared";
             capability_name = ShareHandler.SHARE_PKT;
-            description = _("Share files trough devices.");
+            description = _("Send files across devices");
             settings_key_is_active = "kdeconnect-share-active";
             show_configure_button = true;
         }

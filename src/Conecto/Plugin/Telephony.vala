@@ -32,7 +32,7 @@ namespace Conecto.Plugin {
             name  = _("Telephony");
             icon_name = "phone";
             capability_name = TelephonyHandler.TELEPHONY;
-            description = _("Calls notification and SMS.");
+            description = _("Receive notifications for phone calls and text messages");
             settings_key_is_active = "kdeconnect-telephony-active";
             show_configure_button = true;
         }

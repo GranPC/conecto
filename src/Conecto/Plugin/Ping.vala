@@ -27,7 +27,7 @@ namespace Conecto.Plugin {
             name  = _("Ping");
             icon_name = "network-transmit-receive";
             capability_name = PingHandler.PING;
-            description = _("Send or receive a ping.");
+            description = _("Send or receive a ping");
             settings_key_is_active = "kdeconnect-ping-active";
         }
 

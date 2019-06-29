@@ -32,7 +32,7 @@ namespace Conecto.Plugin {
             name  = _("Notification");
             icon_name = "dialog-information";
             capability_name = NotificationHandler.NOTIFICATION;
-            description = _("Setup notification to send or received.");
+            description = _("Send and receive notifications from your devices");
             settings_key_is_active = "kdeconnect-notification-active";
             show_configure_button = true;
         }

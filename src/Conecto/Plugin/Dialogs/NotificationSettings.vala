@@ -53,9 +53,9 @@ namespace Conecto.Plugin.Dialogs {
             general_grid.column_spacing = 12;
             general_grid.row_spacing = 6;
             general_grid.attach (new Granite.HeaderLabel (_("General")), 0, 0, 2, 1);
-            general_grid.attach (new SettingsLabel (_("Receive nofitications")), 0, 1, 1, 1);
+            general_grid.attach (new SettingsLabel (_("Receive notifications")), 0, 1, 1, 1);
             general_grid.attach (new SettingsSwitch ("kdeconnect-notifications-receive", this.device), 1, 1, 1, 1);
-            general_grid.attach (new SettingsLabel (_("Send nofitications")), 0, 2, 1, 1);
+            general_grid.attach (new SettingsLabel (_("Send notifications")), 0, 2, 1, 1);
             general_grid.attach (new SettingsSwitch ("kdeconnect-notifications-send", this.device), 1, 2, 1, 1);
 
             general_grid.attach (new Granite.HeaderLabel (_("Applications")), 0, 3, 2, 1);

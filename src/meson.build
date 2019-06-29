@@ -1,6 +1,6 @@
 conecto_sources = files(
-    'Conecto/configs/Constants.vala',
-    'Conecto/configs/Settings.vala',
+    'Conecto/Configs/Constants.vala',
+    'Conecto/Configs/Settings.vala',
     'Conecto/Config.vala',
     'Conecto/Contact.vala',
     'Conecto/ContactsInterface.vala',
