@@ -19,6 +19,7 @@
 using Gee;
 using Conecto;
 using Conecto.Plugin;
+using Conecto.Configs;
 
 namespace MConnect {
 
@@ -397,13 +398,13 @@ namespace MConnect {
 
         public void setup_plugins () {
             var schema = SettingsSchemaSource.get_default ().lookup (
-                Conecto.App.GSETTINGS_SCHEMA_ID + ".settings.device",
+                Constants.ID + ".settings.device",
                 false);
             if (schema != null) {
                 debug ("Getting config for device ID: " + id);
                 settings = new GLib.Settings.full (schema,
                     null,
-                    Conecto.App.GSETTINGS_SCHEMA_PATH + "/settings/devices/%s/".printf (id));
+                    Constants.GSETTINGS_SCHEMA_PATH + "/settings/devices/%s/".printf (id));
 
                 if (settings.get_string ("custom-name").length > 1) {
                     custom_name =  settings.get_string ("custom-name");

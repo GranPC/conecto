@@ -15,6 +15,7 @@
  * AUTHORS
  * gyan000 <gyan000 (at] ijaz.fr>
  */
+using Conecto;
 using Conecto.Plugin;
 using Conecto.Plugin.Windows;
 using Conecto.Widgets;
@@ -36,10 +37,10 @@ namespace Conecto {
         // private Gtk.Overlay overlay;
         // private Granite.Widgets.OverlayBar overlaybar;
 
-        public MainWindow (Granite.Application application, GLib.Settings main_settings, SMSHistory sms_history_view) {
+        public MainWindow (Granite.Application application, SMSHistory sms_history_view) {
             Object (
                 application: application,
-                main_settings: main_settings,
+                main_settings: Configs.Settings.get_instance (),
                 sms_history_view: sms_history_view
             );
 

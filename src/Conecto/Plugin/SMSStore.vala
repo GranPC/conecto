@@ -15,16 +15,18 @@
  * AUTHORS
  * gyan000 <gyan000 (at] ijaz.fr>
  */
+using Conecto;
+
 namespace Conecto.Plugin {
 
     public class SMSStore : GLib.Object {
 
         private static SMSStoreInterface? sms_store_interface_instance = null;
 
-        public static SMSStoreInterface instance (GLib.Settings ?main_settings = null) {
+        public static SMSStoreInterface instance () {
 
             if (sms_store_interface_instance == null) {
-                sms_store_interface_instance = SMSStoreFactory.get_sms_store (main_settings);
+                sms_store_interface_instance = SMSStoreFactory.get_sms_store (Configs.Settings.get_instance ());
             }
             return sms_store_interface_instance;
         }

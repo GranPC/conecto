@@ -34,9 +34,9 @@ namespace Conecto.Plugin.Windows {
         private Gtk.Stack stack;
         private string latest_contact_selected = null;
 
-        public SMSHistory (GLib.Settings main_settings, HashMap<string, Device> devices_map) {
+        public SMSHistory (HashMap<string, Device> devices_map) {
             Object (
-                main_settings: main_settings,
+                main_settings: Configs.Settings.get_instance (),
                 devices_map: devices_map
             );
         }

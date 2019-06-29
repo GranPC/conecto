@@ -32,7 +32,9 @@ namespace MConnect {
 
         private static Core _instance = null;
 
-        private Core () { }
+        private Core () {
+            main_settings = Conecto.Configs.Settings.get_instance ();
+        }
 
         public static Core ? instance () throws Error {
             if (Core._instance == null) {

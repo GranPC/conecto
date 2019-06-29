@@ -16,6 +16,8 @@
  * Maciek Borzecki <maciek.borzecki (at] gmail.com>
  * gyan000 <gyan000 (at] ijaz.fr>
  */
+using Conecto.Configs;
+
 namespace MConnect {
 
     public class UploadTransfer : TransferInterface, Object {
@@ -43,7 +45,7 @@ namespace MConnect {
             int file_num = 1,
             string file_uri = ""
         ) {
-            this.launcher_entry = Unity.LauncherEntry.get_for_desktop_id (Conecto.App.GSETTINGS_SCHEMA_ID + ".desktop");
+            this.launcher_entry = Unity.LauncherEntry.get_for_desktop_id (Constants.ID + ".desktop");
             this.socket_service = socket_service;
             this.cancellable = new Cancellable ();
             this.device = device;

@@ -13,24 +13,28 @@
  * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
  *
  * AUTHORS
- * gyan000 <gyan000 (at] ijaz.fr>
+ * Hannes Schulze <haschu0103 (at) gmail.com>
  */
-using Conecto.Configs;
 
 namespace Conecto {
 
-    public class Config : Object {
+    public class Main {
 
-        public static string get_config_dir () {
-            return Path.build_filename (Environment.get_user_config_dir (), Constants.ID);
-        }
+        public static int main (string [] args) {
+            // Needed for mousepad protocol handler.
+            Gdk.init (ref args);
 
-        public static string create_if_not_exists_config_dir () {
-            if (File.new_for_path(Config.get_config_dir ()).query_exists () == false) {
-                DirUtils.create (Config.get_config_dir (), 0700);
+            // Needed for clipboard sharing.
+            Gtk.init (ref args);
+
+            if (!Thread.supported ()) {
+                error ("Cannot run without thread support.\n");
             }
 
-            return Config.get_config_dir ();
+            message ("Report any issues/bugs you might find to https://github.com/hannesschulze/conecto/issues");
+
+            var application = new Application ();
+            return application.run (args);
         }
     }
 }

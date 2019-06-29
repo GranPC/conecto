@@ -31,14 +31,11 @@ namespace MConnect {
         private TransferManager transfer = null;
         public Granite.Application application;
         public HashMap<string, Device> devices_map;
-        GLib.Settings main_settings;
 
         public MConnectThread (Granite.Application application,
-                              HashMap<string, Device> devices_map,
-                              GLib.Settings main_settings) {
+                              HashMap<string, Device> devices_map) {
             this.application = application;
             this.devices_map = devices_map;
-            this.main_settings = main_settings;
             discovery = new Discovery ();
             manager = new DeviceManager ();
             transfer = new TransferManager ();
@@ -55,7 +52,6 @@ namespace MConnect {
                 core.transfer_manager = transfer;
                 core.application = application;
                 core.devices_map = devices_map;
-                core.main_settings = main_settings;
 
                 discovery.device_found.connect ((disc, discovered_device) => {
                     manager.handle_discovered_device (discovered_device);
