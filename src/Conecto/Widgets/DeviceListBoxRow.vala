@@ -44,7 +44,7 @@ namespace Conecto.Widgets {
             _device_icon = new Gtk.Image.from_icon_name (Tools.get_icon_name (device.device_type), Gtk.IconSize.DND);
             _device_icon.pixel_size = 32;
 
-            _device_name = new Gtk.Label (device.custom_name);
+            _device_name = new Gtk.Label (device.custom_name.length >= 1 ? device.custom_name : device.name);
             _device_name.get_style_context ().add_class (Granite.STYLE_CLASS_H3_LABEL);
             _device_name.ellipsize = Pango.EllipsizeMode.END;
             _device_name.halign = Gtk.Align.START;
@@ -74,7 +74,7 @@ namespace Conecto.Widgets {
         }
 
         public void update_ui () {
-            _device_name.label = device.custom_name;
+            _device_name.label = device.custom_name.length >= 1 ? device.custom_name : device.name;
             _device_description.label = Tools.get_status_text (device);
             status_image.icon_name = Tools.get_status_icon_name (device);
         }

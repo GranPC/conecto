@@ -40,11 +40,11 @@ namespace Conecto.Views {
         construct {
 
             var custom_name = device.name;
-            if (device.custom_name.length > 1) {
+            if (device.custom_name.length >= 1) {
                 custom_name =  device.settings.get_string ("custom-name");
             }
 
-            title = custom_name;
+            update_title ();
             icon_name = Tools.get_icon_name (Tools.get_icon_name (device.device_type));
 
             if(device.is_paired) {
@@ -90,10 +90,15 @@ namespace Conecto.Views {
             });
 
             custom_name_entry.changed.connect (() => {
-               title = custom_name_entry.text;
                device.custom_name = custom_name_entry.text;
                device_list_box.update_selected_list_box_row ();
+               update_title ();
            });
+        }
+
+        private void update_title () {
+            title = device.custom_name.length >= 1 ? device.custom_name : device.name;
+            description = title == device.name ? "" : device.name;
         }
 
         public void update_ui () {
