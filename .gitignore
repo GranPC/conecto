@@ -4,7 +4,7 @@ build
 install
 
 # Code temporary files
-*.vala~
+*~
 
 # GSettings Schemas
 *.compiled
