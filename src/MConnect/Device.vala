@@ -505,6 +505,16 @@ namespace MConnect {
                         }
                     break;
 
+                    case MousepadHandler.MOUSEPAD:
+                        if (!plugins_map.has_key (MousepadHandler.MOUSEPAD)) {
+                            var mousepad_plugin = new Mousepad ();
+                            mousepad_plugin.is_active = settings.get_boolean (mousepad_plugin.settings_key_is_active);
+                            mousepad_plugin.application = Core.instance ().application;
+                            mousepad_plugin.init ();
+                            plugins_map.@set (MousepadHandler.MOUSEPAD, mousepad_plugin);
+                        }
+                    break;
+
                     default:
                         // info ("Unable to find a plugin for this %s capability: %s", plugin_type, capability_name);
                     break;

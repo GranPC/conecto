@@ -42,7 +42,7 @@ namespace MConnect {
 
             var battery = BatteryHandler.instance ();
             var clipboard = ClipboardHandler.instance ();
-            // var mousepad = MousepadHandler.instance ();
+            var mousepad = MousepadHandler.instance ();
             // var mpris = MprisHandler.instance ();
             var notification = NotificationHandler.instance ();
             var ping = PingHandler.instance ();
@@ -51,7 +51,7 @@ namespace MConnect {
 
             hnd.@set (battery.get_pkt_type (), battery);
             hnd.@set (clipboard.get_pkt_type (), clipboard);
-            // hnd.@set (mousepad.get_pkt_type (), mousepad);
+            hnd.@set (mousepad.get_pkt_type (), mousepad);
             // hnd.@set (mpris.get_pkt_type (), mpris);
             hnd.@set (notification.get_pkt_type (), notification);
             hnd.@set (ping.get_pkt_type (), ping);

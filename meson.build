@@ -18,6 +18,7 @@ gnome = import('gnome')
 conecto_deps = [
   dependency('atspi-2'),
   dependency('gdk-3.0'),
+  dependency('gdk-x11-3.0'),
   dependency('gee-0.8'),
   dependency('gio-2.0'),
   dependency('gio-unix-2.0'),
@@ -33,6 +34,7 @@ conecto_deps = [
   dependency('unity', version: '>=4.0.0'),
   dependency('sqlite3'),
   dependency('x11'),
+  dependency('xtst'),
   meson.get_compiler('vala').find_library('posix'),
 ]
 
