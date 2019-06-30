@@ -48,7 +48,7 @@ namespace Conecto.Plugin.Popover {
             //history_day_label.sensitive = device.settings.get_boolean ("kdeconnect-battery-notify-low-level-active");
 
             var history_day_spin = new Gtk.SpinButton.with_range (
-                (double)1, (double)99, (double)1);
+                (double) 1, (double) 99, (double) 1);
             history_day_spin.halign = Gtk.Align.CENTER;
             history_day_spin.hexpand = false;
             history_day_spin.margin = 10;
@@ -71,15 +71,15 @@ namespace Conecto.Plugin.Popover {
 
             // left, top, width, height1
             var grid = new Gtk.Grid ();
-            grid.attach (history_icon,        0, 0, 1, 3);
-            grid.attach (desc_label,          1, 0, 3, 1);
-            grid.attach (history_day_label,        1, 1, 1, 1);
-            grid.attach (history_day_spin, 2, 1, 1, 1);
-            grid.attach (activation_switch,   3, 1, 1, 1);
+            grid.attach (history_icon,      0, 0, 1, 3);
+            grid.attach (desc_label,        1, 0, 3, 1);
+            grid.attach (history_day_label, 1, 1, 1, 1);
+            grid.attach (history_day_spin,  2, 1, 1, 1);
+            grid.attach (activation_switch, 3, 1, 1, 1);
 
             add (grid);
 
-            activation_switch.notify["active"].connect( () => {
+            activation_switch.notify["active"].connect ( () => {
                 // ((Plugin.Battery)device.plugins_map.@get (BatteryHandler.BATTERY))
                 //     .battery_low_level_notify_is_active = activation_switch.active;
                 history_icon.sensitive = activation_switch.active;

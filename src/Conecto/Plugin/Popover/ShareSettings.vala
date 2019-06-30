@@ -60,10 +60,9 @@ namespace Conecto.Plugin.Popover {
 
             add (grid);
 
-    		file_chooser.selection_changed.connect (() => {
-    			device.settings.set_string ("kdeconnect-share-directory", file_chooser.get_uri ());
-    		});
-
+            file_chooser.selection_changed.connect (() => {
+                device.settings.set_string ("kdeconnect-share-directory", file_chooser.get_uri ());
+            });
         }
     }
 }

@@ -164,8 +164,7 @@ namespace MConnect {
 
                 foreach (Device device in Core.instance ().devices_map.values) {
                     if (device.has_capability_handler (NotificationHandler.NOTIFICATION)) {
-                        NotificationHandler notification_handler = (NotificationHandler)device.get_path_capability_handler(
-                            NotificationHandler.NOTIFICATION);
+                        NotificationHandler notification_handler = (NotificationHandler) device.get_path_capability_handler (NotificationHandler.NOTIFICATION);
 
                         notification_handler.send_notification (device, message, id);
                     }
@@ -214,7 +213,7 @@ namespace MConnect {
                     dev.to_cache (kf, dev.name);
                 }
 
-                debug("Saving to cache.");
+                debug ("Saving to cache.");
                 FileUtils.set_contents (get_cache_file (), kf.to_data ());
             } catch (FileError e) {
                 warning ("Failed to save to cache file %s: %s", get_cache_file (), e.message);
