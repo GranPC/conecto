@@ -29,6 +29,7 @@ namespace Conecto.Plugin {
             capability_name = PingHandler.PING;
             description = _("Send or receive a ping");
             settings_key_is_active = "kdeconnect-ping-active";
+            is_internal = true;
         }
 
         public override PluginListBoxRow get_plugin_list_box_row (PluginInterface plugin, Device device) {

@@ -27,6 +27,7 @@ namespace Conecto.Plugin {
         public string capability_name  { get; protected set; }
         public string description { get; protected set; }
         public bool is_active = true;
+        public bool is_internal = false;
         public bool show_configure_button = false;
         public string settings_key_is_active { get; protected set; }
         public GLib.Application? application { protected get; public set; }

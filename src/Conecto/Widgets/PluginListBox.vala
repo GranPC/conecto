@@ -51,14 +51,15 @@ namespace Conecto.Widgets {
             }
 
             foreach (var entry in plugins_map.entries) {
+                if (!entry.value.is_internal) {
+                    PluginListBoxRow plugin_list_box_row = entry.value.get_plugin_list_box_row (entry.value, device);
+                    plugin_list_box_row.update_ui ();
 
-                PluginListBoxRow plugin_list_box_row = entry.value.get_plugin_list_box_row (entry.value, device);
-                plugin_list_box_row.update_ui ();
+                    entry.value.parent_window = main_window;
+                    entry.value.row_configure_button = plugin_list_box_row.row_configure_button;
 
-                entry.value.parent_window = main_window;
-                entry.value.row_configure_button = plugin_list_box_row.row_configure_button;
-
-                insert (plugin_list_box_row, 0);
+                    insert (plugin_list_box_row, 0);
+                }
             }
 
             show_all ();
