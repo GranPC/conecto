@@ -23,7 +23,7 @@ namespace Conecto.Plugin {
 
         construct {
             name  = _("Mousepad");
-            icon_name = "edit-copy";
+            icon_name = "input-mouse";
             capability_name = MousepadHandler.MOUSEPAD;
             description = _("Control your computer remotely");
             settings_key_is_active = "kdeconnect-mousepad-active";
