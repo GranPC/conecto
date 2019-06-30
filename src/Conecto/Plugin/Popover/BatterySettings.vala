@@ -53,7 +53,7 @@ namespace Conecto.Plugin.Popover {
             charge_battery_spin.halign = Gtk.Align.CENTER;
             charge_battery_spin.hexpand = false;
             charge_battery_spin.margin = 10;
-            charge_battery_spin.value = device.settings.get_double("kdeconnect-battery-low-level-treshold");
+            charge_battery_spin.value = device.settings.get_double ("kdeconnect-battery-low-level-treshold");
 
             device.settings.bind ("kdeconnect-battery-low-level-treshold", charge_battery_spin,
                 "value", SettingsBindFlags.DEFAULT);
@@ -79,16 +79,16 @@ namespace Conecto.Plugin.Popover {
 
             add (grid);
 
-            activation_switch.notify["active"].connect( () => {
-                ((Plugin.Battery)device.plugins_map.@get (BatteryHandler.BATTERY))
+            activation_switch.notify["active"].connect ( () => {
+                ((Plugin.Battery) device.plugins_map.@get (BatteryHandler.BATTERY))
                     .battery_low_level_notify_is_active = activation_switch.active;
                 battery_icon.sensitive = activation_switch.active;
                 charge_label.sensitive = activation_switch.active;
                 charge_battery_spin.sensitive = activation_switch.active;
             });
 
-            charge_battery_spin.notify["value"].connect( () => {
-                ((Plugin.Battery)device.plugins_map.@get (BatteryHandler.BATTERY))
+            charge_battery_spin.notify["value"].connect ( () => {
+                ((Plugin.Battery) device.plugins_map.@get (BatteryHandler.BATTERY))
                     .battery_low_level_notify_treshold = charge_battery_spin.value;
             });
         }

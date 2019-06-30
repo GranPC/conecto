@@ -107,7 +107,7 @@ namespace MConnect {
         public Device.from_discovered_device (DiscoveredDevice disc) {
             debug ("[DISCOVERED] new device: %s", disc.name);
             try {
-                this();
+                this ();
                 host = disc.host;
                 name = disc.name;
                 custom_name = disc.name;
@@ -407,7 +407,7 @@ namespace MConnect {
                     Constants.GSETTINGS_SCHEMA_PATH + "/settings/devices/%s/".printf (id));
 
                 if (settings.get_string ("custom-name").length > 1) {
-                    custom_name =  settings.get_string ("custom-name");
+                    custom_name = settings.get_string ("custom-name");
                 }
 
                 plugins_map = new Gee.HashMap<string, PluginInterface> ();
@@ -420,9 +420,8 @@ namespace MConnect {
         }
 
         public bool is_capabality_activated (string capability_name) {
-
-            if(plugins_map.has_key (capability_name)) {
-                return ((PluginInterface)plugins_map.@get (capability_name)).is_active;
+            if (plugins_map.has_key (capability_name)) {
+                return ((PluginInterface) plugins_map.@get (capability_name)).is_active;
             }
 
             return false;
@@ -434,12 +433,12 @@ namespace MConnect {
 
         private void _setup_plugin (string capability_name, string plugin_type) {
             try {
-                string[] capability_name_parts = capability_name.split(".");
+                string[] capability_name_parts = capability_name.split (".");
                 string plugin_capability_name = capability_name_parts[0] + "." + capability_name_parts[1];
 
                 switch (plugin_capability_name) {
                     case BatteryHandler.BATTERY:
-                        if(!plugins_map.has_key (BatteryHandler.BATTERY)) {
+                        if (!plugins_map.has_key (BatteryHandler.BATTERY)) {
                             var battery_plugin = new Battery ();
                             battery_plugin.is_active = settings.get_boolean (battery_plugin.settings_key_is_active);
                             battery_plugin.battery_low_level_notify_is_active = settings.get_boolean (
@@ -452,8 +451,7 @@ namespace MConnect {
                     break;
 
                     case NotificationHandler.NOTIFICATION:
-                        if(!plugins_map.has_key (NotificationHandler.NOTIFICATION)) {
-
+                        if (!plugins_map.has_key (NotificationHandler.NOTIFICATION)) {
                             var notification_plugin = new Plugin.Notification ();
                             notification_plugin.is_active = settings.get_boolean (
                                 notification_plugin.settings_key_is_active);
@@ -469,7 +467,7 @@ namespace MConnect {
                     break;
 
                     case PingHandler.PING:
-                        if(!plugins_map.has_key (PingHandler.PING)) {
+                        if (!plugins_map.has_key (PingHandler.PING)) {
                             var ping_plugin = new Ping ();
                             ping_plugin.is_active = settings.get_boolean (ping_plugin.settings_key_is_active);
 
@@ -478,7 +476,7 @@ namespace MConnect {
                     break;
 
                     case ShareHandler.SHARE_PKT:
-                        if(!plugins_map.has_key (ShareHandler.SHARE_PKT)) {
+                        if (!plugins_map.has_key (ShareHandler.SHARE_PKT)) {
                             var share_plugin = new Share ();
                             share_plugin.is_active = settings.get_boolean (share_plugin.settings_key_is_active);
                             plugins_map.@set (ShareHandler.SHARE_PKT, share_plugin);
@@ -486,7 +484,7 @@ namespace MConnect {
                     break;
 
                     case TelephonyHandler.TELEPHONY:
-                        if(!plugins_map.has_key (TelephonyHandler.TELEPHONY)) {
+                        if (!plugins_map.has_key (TelephonyHandler.TELEPHONY)) {
                             var telephony_plugin = new Telephony ();
                             telephony_plugin.is_active = settings.get_boolean (telephony_plugin.settings_key_is_active);
                             telephony_plugin.application = Core.instance ().application;

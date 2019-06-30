@@ -67,7 +67,7 @@ namespace Conecto.Plugin.Dialogs {
         public void update_progress (int file_num, double progress_percentage) {
 
             ProgressFileListBoxRow box_row = (ProgressFileListBoxRow)listbox_files.get_row_at_index (file_num);
-            if(box_row == null) {
+            if (box_row == null) {
                 return;
             }
 
@@ -91,7 +91,7 @@ namespace Conecto.Plugin.Dialogs {
                     destroy ();
                     break;
             }
-    	}
+        }
 
         private class ProgressFileListBoxRow : Gtk.ListBoxRow {
 

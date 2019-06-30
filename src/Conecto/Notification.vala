@@ -28,7 +28,7 @@
         public string app_icon { get; private set; }
         public bool app_icon_available { get; private set; }
 
-        public Notification(
+        public Notification (
             string id,
             string app_name,
             bool is_cancelled,

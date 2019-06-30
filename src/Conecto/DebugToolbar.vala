@@ -33,7 +33,7 @@ namespace Conecto {
             combo_box_packets.append_text ("telephony - sms");
             combo_box_packets.append_text ("telephony - sms2");
             combo_box_packets.append_text ("dismiss notification");
-            combo_box_packets.set_active(0);
+            combo_box_packets.set_active (0);
             combo_box_packets.margin = 10;
 
             text_data_1 = new Gtk.Entry ();
@@ -49,7 +49,7 @@ namespace Conecto {
             attach (button_send_packet, 2, 0, 1, 1);
 
             button_send_packet.clicked.connect (() => {
-                switch (combo_box_packets.get_active_text()) {
+                switch (combo_box_packets.get_active_text ()) {
                     case "dismiss notification":
                         dismiss_notification_id ();
                         break;

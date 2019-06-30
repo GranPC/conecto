@@ -24,7 +24,7 @@ namespace Conecto.Plugin {
     public class Clipboard : PluginInterface {
 
         construct {
-            name  = _("Clipboard");
+            name = _("Clipboard");
             icon_name = "edit-copy"; // TODO clipboard icon
             capability_name = ClipboardHandler.CLIPBOARD;
             description = _("Share clipboard");

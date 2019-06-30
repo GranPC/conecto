@@ -26,7 +26,7 @@ namespace Conecto {
         }
 
         public static string create_if_not_exists_config_dir () {
-            if (File.new_for_path(Config.get_config_dir ()).query_exists () == false) {
+            if (File.new_for_path (Config.get_config_dir ()).query_exists () == false) {
                 DirUtils.create (Config.get_config_dir (), 0700);
             }
 

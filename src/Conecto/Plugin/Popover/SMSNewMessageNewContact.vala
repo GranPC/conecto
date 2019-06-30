@@ -92,7 +92,7 @@ namespace Conecto.Plugin.Popover {
                 list_box.@foreach (() => {
                     ContactListBoxRow clbw = (ContactListBoxRow)list_box.get_row_at_index (count);
 
-                    ((TelephonyHandler)device.get_path_capability_handler(TelephonyHandler.TELEPHONY))
+                    ((TelephonyHandler) device.get_path_capability_handler (TelephonyHandler.TELEPHONY))
                         .send_sms (device, clbw.contact.international_phone_number, message);
 
                     SMSStore.instance ().add_sms (
@@ -121,24 +121,24 @@ namespace Conecto.Plugin.Popover {
 
                 scrolled_window.add (list_box);
 
-                var search_entry = new Gtk.SearchEntry();
+                var search_entry = new Gtk.SearchEntry ();
                 search_entry.margin = 5;
                 search_entry.placeholder_text = _("Search a contact or enter a phone number");
 
-                var list_store = new Gtk.ListStore(2, typeof(string), typeof(Contact));
+                var list_store = new Gtk.ListStore (2, typeof (string), typeof (Contact));
 
                 Gtk.TreeIter iter;
                 foreach (Contact contact in contacts_interface.contacts) {
-                    list_store.append(out iter);
-                    list_store.set(iter, 0, contact.name, 1, contact);
+                    list_store.append (out iter);
+                    list_store.set (iter, 0, contact.name, 1, contact);
                 }
 
-                var entry_completion = new Gtk.EntryCompletion();
+                var entry_completion = new Gtk.EntryCompletion ();
                 entry_completion.model = list_store;
                 entry_completion.text_column = 0;
                 entry_completion.popup_completion = true;
 
-                search_entry.set_completion(entry_completion);
+                search_entry.set_completion (entry_completion);
 
                 entry_completion.match_selected.connect ( (model, iter) => {
                     GLib.Value name;
@@ -151,7 +151,7 @@ namespace Conecto.Plugin.Popover {
 
                     list_box.@foreach (() => {
                         ContactListBoxRow clbw = (ContactListBoxRow)list_box.get_row_at_index (count);
-                        if (((Contact)contact).international_phone_number == clbw.contact.international_phone_number) {
+                        if (((Contact) contact).international_phone_number == clbw.contact.international_phone_number) {
                             insert = false;
                         }
                     });

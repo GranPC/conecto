@@ -38,7 +38,7 @@ namespace MConnect {
         }
 
         private static HashMap<string, PacketHandlerInterface> load_handlers () {
-            HashMap<string, PacketHandlerInterface> hnd = new HashMap<string, PacketHandlerInterface>();
+            HashMap<string, PacketHandlerInterface> hnd = new HashMap<string, PacketHandlerInterface> ();
 
             var battery = BatteryHandler.instance ();
             var clipboard = ClipboardHandler.instance ();

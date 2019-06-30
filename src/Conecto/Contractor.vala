@@ -26,7 +26,7 @@ namespace Conecto {
         }
 
         public static string create_if_not_exists_contract_dir () {
-            if (File.new_for_path(Contractor.get_contract_dir ()).query_exists () == false) {
+            if (File.new_for_path (Contractor.get_contract_dir ()).query_exists () == false) {
                 DirUtils.create (Contractor.get_contract_dir (), 0700);
             }
 
@@ -45,11 +45,11 @@ namespace Conecto {
                     iterated_file.delete ();
                 }
             } catch (Error e) {
-        		warning ("Error: %s\n", e.message);
+                warning ("Error: %s\n", e.message);
         	}
         }
 
-        public static void create_contract(Device device) {
+        public static void create_contract (Device device) {
             try {
                 var contract_file = Path.build_filename (Contractor.create_if_not_exists_contract_dir (), device.id + ".contract");
 

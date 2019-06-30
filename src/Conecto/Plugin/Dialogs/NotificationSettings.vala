@@ -92,7 +92,7 @@ namespace Conecto.Plugin.Dialogs {
 
         public bool filter_listbox_applications (Gtk.ListBoxRow row) {
 
-            if(filter_listbox_application_entry.text.length == 0) {
+            if (filter_listbox_application_entry.text.length == 0) {
               return true;
             }
 
@@ -118,12 +118,12 @@ namespace Conecto.Plugin.Dialogs {
                 active = device.settings.get_boolean (capability_name);
                 device.settings.bind (capability_name, this, "active", SettingsBindFlags.DEFAULT);
                 this.notify["active"].connect (() => {
-                    if(capability_name == "kdeconnect-notifications-receive") {
-                        ((Plugin.Notification)device.plugins_map.@get (NotificationHandler.NOTIFICATION))
+                    if (capability_name == "kdeconnect-notifications-receive") {
+                        ((Plugin.Notification) device.plugins_map.@get (NotificationHandler.NOTIFICATION))
                             .settings_receive_is_active =  this.active;
                     }
                     else {
-                        ((Plugin.Notification)device.plugins_map.@get (NotificationHandler.NOTIFICATION))
+                        ((Plugin.Notification) device.plugins_map.@get (NotificationHandler.NOTIFICATION))
                             .settings_send_is_active =  this.active;
                     }
                 });

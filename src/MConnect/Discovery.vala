@@ -53,7 +53,7 @@ namespace MConnect {
                 this.incomingPacket ();
                 return true;
             });
-            
+
             source.attach (MainContext.default ());
         }
 
