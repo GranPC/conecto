@@ -70,12 +70,18 @@ namespace Conecto {
 
 
             mconnect_thread.devices_updated.connect (() => {
-                main_window.update_ui (devices_map);
-                sms_history_view.update_available_device_combobox ();
+                Idle.add (() => {
+                    main_window.update_ui (devices_map);
+                    sms_history_view.update_available_device_combobox ();
+                    return Source.REMOVE;
+                });
             });
 
             mconnect_thread.devices_status_updated.connect (() => {
-                sms_history_view.update_available_device_combobox ();
+                Idle.add (() => {
+                    sms_history_view.update_available_device_combobox ();
+                    return Source.REMOVE;
+                });
             });
 
             shutdown.connect (() => {
